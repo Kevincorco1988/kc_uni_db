@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %} Trending {% endblock %}
+
+{% block content %}
+    <!-- Container for the trending statistics -->
+    <div class="content-container">
+        <!-- Header for the trending statistics -->
+        <h2>Trending Statistics</h2>
+
+        <!-- Container for total students and total courses -->
+        <div class="trends-div">
+            <!-- Total Students -->
+            <p class="trends-p">
+                <span class="labels">Total Students:</span>
+                <span class="values">{{ total_students }}</span>
+            </p>
+            <!-- Total Courses -->
+            <p class="trends-p">
+                <span class="labels">Total Courses:</span>
+                <span class="values">{{ total_courses }}</span>
+            </p>
+        </div>
+        
+        <br>
+        
+        <!-- Container for the busiest student -->
+        <div class="trends-div">
+            <p class="trends-p">
+                <span class="labels-hd">Our Busiest Student</span>
+            </p>
+            <!-- Displays information if available -->
+            {% if most_enrolled_student %}
+                <p class="trends-p">
+                    <span class="labels">Name:</span>
+                    <span class="values">{{ most_enrolled_student.first_name }} {{ most_enrolled_student.last_name }}</span>
+                </p>
+                <p class="trends-p">
+                    <span class="labels">Enrollment Count:</span>
+                    <span class="values">{{ most_enrolled_student.enrollment_count }}</span>
+                </p>
+                <br>
+            {% else %}
+            <!-- Display message if no trending statistics available for students -->
+                <p class="trends-p">
+                    <span class="values">No trending statistics available for students.</span>
+                </p>
+            {% endif %}
+        </div>
+        
+        <br>
+        
+        <!-- Container for the least busy student -->
+        <div class="trends-div">
+            <p class="trends-p">
+                <span class="labels-hd">Our Least Busy Student</span>
+            </p>
+            <!-- Displays information if available -->
+            {% if least_enrolled_student %}
+                <p class="trends-p">
+                    <span class="labels">Name:</span>
+                    <span class="values">{{ least_enrolled_student.first_name }} {{ least_enrolled_student.last_name }}</span>
+                </p>
+                <p class="trends-p">
+                    <span class="labels">Enrollment Count:</span>
+                    <span class="values">{{ least_enrolled_student.enrollment_count }}</span>
+                </p>
+            {% else %}
+            <!-- Display message if no trending statistics available for students -->
+                <p class="trends-p">
+                    <span class="values">No trending statistics available for students.</span>
+                </p>
+            {% endif %}
+        </div>
+        
+        <br>
+        
+        <!-- Container for the busiest course -->
+        <div class="trends-div">
+            <p class="trends-p">
+                <span class="labels-hd">Our Busiest Course</span>
+            </p>
+            <!-- Displays information if available -->
+            {% if most_enrolled_course %}
+                <p class="trends-p">
+                    <span class="labels">Course Name:</span>
+                    <span class="values">{{ most_enrolled_course.course_name }}</span>
+                </p>
+                <p class="trends-p">
+                    <span class="labels">Enrollment Count:</span>
+                    <span class="values">{{ most_enrolled_course.enrollment_count }}</span>
+                </p>
+                <br>
+            {% else %}
+            <!-- Display message if no trending statistics available for courses -->
+                <p class="trends-p">
+                    <span class="values">No trending statistics available for courses.</span>
+                </p>
+            {% endif %}
+        </div>
+        
+        <br>
+        
+        <!-- Container for the least busy course -->
+        <div class="trends-div">
+            <p class="trends-p">
+                <span class="labels-hd">Our Least Busy Course</span>
+            </p>
+
+            <!-- Display information if available -->
+            {% if least_enrolled_course %}
+                <p class="trends-p">
+                    <span class="labels">Course Name:</span>
+                    <span class="values">{{ least_enrolled_course.course_name }}</span>
+                </p>
+                <p class="trends-p">
+                    <span class="labels">Enrollment Count:</span>
+                    <span class="values">{{ least_enrolled_course.enrollment_count }}</span>
+                </p>
+            {% else %}
+            <!-- Display message if no trending statistics available for courses -->
+                <p class="trends-p">
+                    <span class="values">No trending statistics available for courses.</span>
+                </p>
+            {% endif %}
+        </div>
+{% endblock %}
+
+
+
+

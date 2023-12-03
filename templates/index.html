@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %} 
+    {% if current_user.is_authenticated %}
+        <!-- Display a welcome message in the dashboard for authenticated users -->
+        <h1 id="dash-welcome">Explore Your Dashboard, <span id="welcome-span">{{ current_user.username }}!</span></h1>
+
+        <!-- Dashboard navigation links for different pages -->
+        <nav id="dash-nav">
+            <ul>
+                <!-- Link to the Student Table page -->
+                <li class="dash-nav-a"><a href="{{ url_for('add_student') }}">Student Table</a></li>
+
+                <!-- Link to the Course Table page -->
+                <li class="dash-nav-a"><a href="{{ url_for('add_course') }}">Course Table</a></li>
+
+                <!-- Link to the Course Enrollment Table page -->
+                <li class="dash-nav-a"><a href="{{ url_for('add_course_enrollment') }}">Course Enrollment Table</a></li>
+
+                <!-- Link to the Trending Statistics page -->
+                <li class="dash-nav-a"><a href="{{ url_for('trending') }}">Trending Statistics</a></li>
+            </ul>
+        </nav>
+    {% else %}
+        <!-- Centered logo for non-authenticated users -->
+        <div id="not-logged-in-logo">
+            <img id="logo" src="{{ url_for('static', filename='images/kc-logo.jpeg') }}" alt="{{ logo }}">
+        </div>
+    {% endif %}
+{% endblock %}
+

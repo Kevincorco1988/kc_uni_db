@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Course {% endblock %}
+
+{% block content %}
+    <!-- Container for the form -->
+  <div class="content-container">
+
+    <!-- Header indicating whether it's an update or delete operation -->
+    <h2 class="form-hd">{{ 'Update Course' if course else 'Delete Course' }}</h2>
+
+    <!-- Form to update or delete a course -->
+    <form class="form-to-table" method="POST" action="{{ url_for('edit_course', course_id=course.id) }}">
+        <label for="course_name">Course Name:</label>
+        <input type="text" name="course_name" value="{{ course.course_name }}" required><br>
+
+        <label for="day">Day:</label>
+        <input type="text" name="day" value="{{ course.day }}" required><br>
+
+        <label for="time">Time:</label>
+        <input class="bottom-input" type="text" name="time" value="{{ course.time }}" required><br>
+
+        <button class="activation-button" type="submit" name="delete">Delete Course</button>
+        <button class="activation-button" type="submit">Update Course</button>
+    </form>
+  </div>
+{% endblock %}

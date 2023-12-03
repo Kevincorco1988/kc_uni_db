@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Student {% endblock %}
+
+{% block content %}
+<!-- Container for the form -->
+  <div class="content-container">
+
+    <!-- Header indicating whether it's an update or delete operation -->
+    <h2 class="form-hd">{{ 'Update Student' if student else 'Delete Student' }}</h2>
+
+    <!-- Form to update or delete a student -->
+    <form class="form-to-table" method="POST" action="{{ url_for('edit_student', student_id=student.id) }}">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" value="{{ student.first_name }}" required><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" value="{{ student.last_name }}" required><br>
+
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" name="date_of_birth" value="{{ student.date_of_birth.strftime('%Y-%m-%d') }}" required><br>
+
+        <label for="phone">Phone:</label>
+        <input type="text" name="phone" value="{{ student.phone }}" required><br>
+
+        <label for="email">Email:</label>
+        <input class="bottom-input" type="email" name="email" value="{{ student.email }}" required><br>
+
+        <button class="activation-button" type="submit" name="delete">Delete Student</button>
+        <button class="activation-button" type="submit">Update Student</button>
+    </form>
+  </div>
+{% endblock %}

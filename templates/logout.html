@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Logout {% endblock %}
+
+{% block content %} 
+    <div id="logout-area">
+        <!-- Logout confirmation message -->
+        <p id="logout-p">Are you sure you want to log out?</p>
+
+    <!-- Form for submitting the logout action -->
+    <form action="{{ url_for('logout_action') }}" method="POST">
+        <button class="activation-button" type="submit">Logout</button>
+    </form>
+    </div>
+{% endblock %}

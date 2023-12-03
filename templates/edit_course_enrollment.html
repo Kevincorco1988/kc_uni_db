@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Update Course Enrollment {% endblock %}
+
+{% block content %}
+    <!-- Container for the form -->
+  <div class="content-container">
+
+    <!-- Header indicating whether it's an update or delete operation -->
+    <h2 class="form-hd">{{ 'Update Course Enrollment' if enrollment else 'Delete Course Enrollment' }}</h2>
+
+    <!-- Form to update or delete a course enrollment -->
+    <form class="form-to-table" method="POST" action="{{ url_for('edit_course_enrollment', enrollment_id=enrollment.id) }}">
+        <label for="student_id">Student ID:</label>
+        <input type="text" name="student_id" value="{{ enrollment.student_id }}" required><br>
+
+        <label for="course_id">Course ID:</label>
+        <input class="bottom-input" type="text" name="course_id" value="{{ enrollment.course_id }}" required><br>
+
+        <button class="activation-button" type="submit" name="delete">Withdraw from Course</button>
+        <button class="activation-button" type="submit">Update Enrollment</button>
+    </form>
+  </div>
+{% endblock %}

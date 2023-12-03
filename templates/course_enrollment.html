@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Course Enrollment {% endblock %}
+
+{% block content %}
+    <!-- Container for the form and table -->
+  <div class="content-container">
+    <h2 class="form-hd">Enroll a Student to a Course</h2>
+
+    <!-- Button to trigger smooth scroll to the table -->
+    <button class="scroll-to-table" data-target="current-enrollments-table">Scroll to Enrollments Table</button>
+
+    <!-- Form to enroll a student to a course -->
+  <form class="form-to-table" method="POST" action="{{ url_for('add_course_enrollment') }}">
+    <label for="student_id">Student ID:</label>
+    <input type="text" name="student_id" required><br>
+
+    <label for="course_id">Course ID:</label>
+    <input class="bottom-input" type="text" name="course_id" required><br>
+
+    <button class="activation-button" type="submit">Enroll</button>
+  </form>
+
+  <!-- Header for the table of current course enrollments -->
+  <h2 class="table-hd">Current Course Enrollments</h2>
+
+    <!-- Container for the table -->
+    <div class="table-container" id="current-enrollments-table">
+
+        <!-- Check if enrollments have been added -->
+        {% if enrollments %}
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Course Name</th>
+          <th>Day</th>
+          <th>Time</th>
+          <th>Created By</th>
+          <th>Created At</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through added enrollments and display information -->
+        {% for enrollment in enrollments %}
+          <tr {% if enrollment.creator == current_user %}class="highlight"{% endif %}>
+            <td>{{ enrollment.student.first_name }}</td>
+            <td>{{ enrollment.student.last_name }}</td>
+            <td>{{ enrollment.course.course_name }}</td>
+            <td>{{ enrollment.course.day }}</td>
+            <td>{{ enrollment.course.time }}</td>
+            <td>{{ enrollment.creator.username }}</td>
+            <td>{{ enrollment.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+            <td>
+                <!-- Check if the creator of the enrollment is the current user -->
+              {% if enrollment.creator == current_user %}
+                <a class="edit-delete" href="{{ url_for('edit_course_enrollment', enrollment_id=enrollment.id) }}">Edit</a>
+                <a class="edit-delete" href="{{ url_for('delete_course_enrollment', enrollment_id=enrollment.id) }}">Delete</a>
+              {% else %}
+               <!-- Message indicating only the owner can edit or delete -->
+                Only the owner can edit or delete this entry.
+              {% endif %}
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <!-- Message if no enrollments have been added yet -->
+        <p>No enrollments added yet.</p>
+    {% endif %}
+    </div>
+  </div>
+{% endblock %}

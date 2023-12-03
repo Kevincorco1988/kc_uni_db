@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Link to the external stylesheet for styling -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Set the character set and viewport for better rendering on different devices -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Set the title of the page, can be overridden in child templates -->
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body {% if not current_user.is_authenticated %}class="logged-out"{% endif %}>
+    <!-- Main content wrapper -->
+    <div id="wrapper">
+
+        <!-- Header section with logo and navigation -->
+        <header>
+            <img id="logo" src="{{ url_for('static', filename='images/kc-logo.jpeg') }}" alt="{{ logo }}">
+            <h1 id="logo-hd">KC ONLINE SCHOOL</h1>
+
+            <!-- Top navigation links, change based on user authentication status -->
+            <nav id="top-nav">
+                {% if current_user.is_authenticated %}
+                    <a class="top-nav-a" href="{{ url_for('index') }}">Dashboard</a>
+                    <a class="top-nav-a" href="{{ url_for('logout_page') }}">Logout</a>
+                {% else %}
+                    <a class="top-nav-a" href="{{ url_for('login_page') }}">Login</a>
+                    <a class="top-nav-a" href="{{ url_for('register_page') }}">Register</a>
+                {% endif %}
+            </nav>
+        </header>
+
+        <!-- Flash messages display -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul class="flashes">
+                {% for category, message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        {% endwith %}
+
+        <!-- Main content block, to be overridden in child templates -->
+        {% block content %}{% endblock %}
+        
+        <!-- Footer section -->
+        <footer>
+            <h3>Copyright &copy; 2023</h3>
+        </footer>
+    </div>
+    <!-- JavaScript file inclusion for interactive features -->   
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

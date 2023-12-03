@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Register {% endblock %}
+
+{% block content %}
+<!-- Header for user registration form-->
+<h2 class="enter-hd">Register a New User</h2>
+
+<!-- User registration form -->
+<form class="activation-forms" action="{{ url_for('register_action') }}" method="POST">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button class="activation-button" type="submit">Register</button>
+</form>
+{% endblock %}

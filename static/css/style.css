@@ -1,0 +1,622 @@
+* {
+    box-sizing: border-box;
+}
+/* Body styles for background, font, and layout */
+body {
+    background: linear-gradient(45deg, #800000, #B22222);
+    color: #CCCCCC;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+/* Animation keyframes for flashing effect */
+@keyframes flash {
+    0% {
+        color: black; 
+    }
+    50% {
+        color: goldenrod; 
+    }
+    100% {
+        color: black; 
+    }
+}
+
+/* Styles for flashing text elements */
+.flashes {
+    text-align: center;
+    list-style-type: none;
+    font-size: xx-large;
+    animation: flash 2s infinite;
+}
+/* Header styles */
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: linear-gradient(45deg, #CCCCCC, #999999);
+}
+/* Logo and header text styles */
+#logo {
+    height: 180px;
+    width: 200px;
+}
+
+#logo-hd {
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-top: 120px;
+    margin-left: 150px;
+    font-size: 50px;
+    color: darkblue;
+}
+/* Logo for index while not logged-in styles */
+#not-logged-in-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+}
+
+#not-logged-in-logo img {
+    height: 400px;
+    width: 400px;
+}
+/* Top navigation styles */
+#top-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: x-large;
+    margin-top: 80px;
+    margin-right: 100px;
+}
+
+.top-nav-a {
+    margin: 0 15px; 
+    text-decoration: none;
+    color: white; 
+    border-radius: 30px; 
+    padding: 20px; 
+    background-color: #333; 
+}
+
+.top-nav-a:hover {
+    background-color: darkblue;
+}
+
+/* Dashboard welcome message styles */
+#dash-welcome {
+    text-align: center;
+    margin-top: 100px;
+}
+
+#welcome-span {
+    color: goldenrod;
+}
+/* Dashboard navigation styles */
+#dash-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    list-style-type: none;
+    font-size: xx-large;
+    margin-top: 150px;
+}
+
+#dash-nav ul {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+
+.dash-nav-a {
+    flex: 0 0 45%; 
+    margin: 10px; 
+    padding: 20px;   
+    text-align: center;
+    margin-bottom: 80px;
+    border-radius: 30px;
+    list-style-type: none;
+    background-color: #333;
+    cursor: pointer;
+}
+
+.dash-nav-a:hover {
+    background-color: darkblue;
+}
+
+.dash-nav-a a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Entrance to the app heading styles */
+.enter-hd {
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 250px;
+    animation: flash 2s infinite;
+}
+/* General button styles */
+button {
+    cursor: pointer;
+}
+/* Logout area styles */
+#logout-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+#logout-p {
+    font-size: xx-large;
+    margin: 0;
+    animation: flash 2s infinite;
+}
+/* Activation form (for entering the app) styles */
+.activation-forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: xx-large;
+    margin-top: 30px;
+}
+
+.activation-forms input, button {
+    border-radius: 30px;
+    font-size: xx-large;
+    text-align: center;
+}
+
+
+.activation-button {
+    background-color: #333;
+    color: white;
+    font-size: x-large;
+}
+/* Activation button styles */
+.activation-button:hover {
+    background-color: darkblue;
+}
+/* Input styles */
+input {
+    margin-bottom: 10px;
+}
+
+.bottom-input {
+    margin-bottom: 20px;
+}
+/* Content container styles */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 20px;
+}
+/* Form-to-table (form that passes info the the coresponding tables) styles */
+.form-to-table {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(45deg, #CCCCCC, #999999);
+    color: black;
+}
+
+.form-to-table input {
+    border-radius: 10px;
+}
+
+.form-hd {
+    margin-top: 190px;
+}
+/* TScroll to table button styles */
+.scroll-to-table {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.scroll-to-table:hover {
+    background-color: darkblue;
+}
+
+/* Table header styles */
+.table-hd {
+    margin-top: 100px;
+}
+/* Table container styles */
+.table-container {
+    overflow-x: auto;
+}
+/* Table styles */
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+  
+th, td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+  
+td {
+    background-color: white;
+    color: black;
+}
+
+th {
+    font-weight: bold;
+    color: darkblue;
+}
+/* Edit/Delete button styles */
+.edit-delete {
+    text-decoration: none;
+    border: 5px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    color: darkblue;
+    background-color: white;
+}
+
+.edit-delete:hover {
+    color: white;
+    background-color: darkblue;
+}
+/* H1, H2 styles */
+h1, h2 {
+    font-weight: bold;
+    font-size: xx-large;
+    color: black;
+}
+/* Trending div styles */
+.trends-div {
+    background: linear-gradient(to right, #ddd, #eee);
+    color: #333;
+    border-radius: 30px;
+    padding: 10px;
+}
+/* Trending P styles */
+.trends-p {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
+
+.trends-p {
+    font-size: x-large;
+    font-weight: bold;
+    border: 10px solid #333;
+    border-radius: 10px;
+    padding: 5px;
+}
+/* Labels headings styles */
+.labels-hd {
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.trends-p .labels {
+    color: darkblue;
+}
+
+.trends-p .values {
+    color: goldenrod;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    font-size: xx-large;
+    color: black;
+    margin-top: 200px;
+}
+
+body.logged-out footer {
+    margin-top: 400px;
+}
+
+/*Styles for screens of max-width: 912px */
+@media screen and (max-width: 912px) {
+    #logo-hd {
+        margin-top: 20px;
+    }
+    #top-nav {
+        font-size: large;
+        margin-right: none;
+    }
+    .top-nav-a {
+        padding: 15px;
+    }
+}
+
+/*Styles for screens of max-width: 820px */
+@media screen and (max-width: 820px) {
+    #logo-hd {
+        margin-top: none;
+        font-size: 35px;
+        margin-top: 20px;
+    }
+    #top-nav {
+        font-size: 20px;
+        margin-right: none;
+        margin-left: 70px;
+    }
+    .activation-forms input, button {
+        font-size: x-large;
+    }
+}
+
+/*Styles for screens of max-width: 768px */
+@media screen and (max-width: 768px) {
+    #logo-hd {
+        margin-top: none;
+        font-size: 35px;
+        margin-top: 20px;
+    }
+    #top-nav {
+        font-size: 20px;
+        margin-right: none;
+        margin-left: 20px;
+    }
+    .top-nav-a {
+        padding: 10px;
+    }
+    .activation-forms input, button {
+        font-size: x-large;
+    }
+}
+
+/*Styles for screens of max-width: 540px */
+@media screen and (max-width: 540px) {
+    #logo {
+        height: 170px;
+        width: 120px;
+    }
+    #logo-hd {
+        margin-top: 50px;
+        font-size: 20px;
+    }
+    #not-logged-in-logo img {
+        height: 300px;
+        width: 300px;
+    }
+    #top-nav {
+        font-size: 13px;
+        margin-right: none;
+    }
+    .top-nav-a {
+        padding: 5px;
+    }
+    .activation-forms input, button {
+        font-size: medium;
+    }
+    .activation-button {
+        font-size: medium;
+    }
+    #dash-nav {
+        font-size: large;
+    }
+    .edit-delete {
+        border: 0.5px solid black;
+        border-radius: 0.5px;
+        padding: 0.5px;
+    }
+    th, td {
+        border: 0.5px solid black;
+        padding: none;
+    }
+    #logout-p {
+        font-size: large;
+    }
+}
+
+/*Styles for screens of max-width: 430px */
+@media screen and (max-width: 430px) {
+    #logo {
+        height: 120px;
+        width: 120px;
+    }
+    #logo-hd {
+        margin-top: 50px;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    #not-logged-in-logo img {
+        height: 300px;
+        width: 300px;
+    }
+    #top-nav {
+        font-size: 12px;
+        margin-right: 5px;
+    }
+}
+
+/*Styles for screens of max-width: 414px */
+@media screen and (max-width: 414px) {
+    #logo {
+        height: 100px;
+        width: 120px;
+    }
+    #logo {
+        height: 170px;
+        width: 120px;
+    }
+    #logo-hd {
+        margin-top: 50px;
+        font-size: 25px;
+        margin-left: 20px;
+    }
+    #top-nav {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+    .top-nav-a {
+        padding: 1px;
+    }
+    .activation-forms input, button {
+        font-size: small;
+    }
+    .activation-button {
+        font-size: small;
+    }
+    #dash-nav {
+        font-size: large;
+    }
+    .edit-delete {
+        border: 0.5px solid black;
+        border-radius: 0.5px;
+        padding: 0.5px;
+    }
+    th, td {
+        border: 0.5px solid black;
+        padding: none;
+    }
+    #logout-p {
+        font-size: medium;
+    }
+
+    .flashes {
+        font-size: large;
+    }
+}
+
+/*Styles for screens of max-width: 390px */
+@media screen and (max-width: 390px) {
+    #logo {
+        height: 120px;
+        width: 120px;
+    }
+    #logo-hd {
+        margin-top: 50px;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    #top-nav {
+        font-size: 12px;
+        margin-right: 5px;
+    }
+}
+
+/*Styles for screens of max-width: 375px */
+@media screen and (max-width: 375px) {
+    #logo {
+        height: 130px;
+        width: 110px;
+    }
+    #logo-hd {
+        margin-top: 50px;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    #top-nav {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+    .top-nav-a {
+        padding: 1px;
+    }
+    .activation-forms input, button {
+        font-size: x-small;
+    }
+    .activation-button {
+        font-size: x-small;
+    }
+    #dash-nav {
+        font-size: large;
+    }
+    .edit-delete {
+        border: 0.5px solid black;
+        border-radius: 0.5px;
+        padding: 0.5px;
+    }
+    th, td {
+        border: 0.5px solid black;
+        padding: none;
+    }
+    #logout-p {
+        font-size: medium;
+    }
+
+    .flashes {
+        font-size: large;
+    }
+}
+
+/*Styles for screens of max-width: 360px */
+@media screen and (max-width: 360px) {
+    #logo {
+        height: 130px;
+        width: 110px;
+    }
+    #logo-hd {
+        margin-top: 50px;
+        font-size: 20px;
+        margin-left: 10px;
+    }
+    #top-nav {
+        font-size: 12px;
+        margin-right: 5px;
+    }
+    .top-nav-a {
+        padding: 1px;
+    }
+}
+
+/*Styles for screens of max-width: 280px */
+@media screen and (max-width: 280px) {
+    #logo {
+        height: 100px;
+        width: 90px;
+    }
+    #logo-hd {
+        margin-top: 50px;
+        font-size: 10px;
+        margin-left: none;
+    }
+    #not-logged-in-logo img {
+        height: 200px;
+        width: 200px;
+    }
+    #top-nav {
+        font-size: 10px;
+        margin-right: none;
+    }
+    .top-nav-a {
+        padding: 1px;
+    }
+    .activation-forms input, button {
+        font-size: xx-small;
+        border-radius: 5px;
+    }
+    .activation-button {
+        font-size: xx-small;
+        border-radius: 5px;
+    }
+    #dash-nav {
+        font-size: large;
+    }
+    .edit-delete {
+        border: 0.5px solid black;
+        border-radius: 0.5px;
+        padding: 0.5px;
+    }
+    th, td {
+        border: 0.5px solid black;
+        padding: none;
+    }
+    #logout-p {
+        font-size: medium;
+    }
+    .flashes {
+        font-size: large;
+    }
+}
