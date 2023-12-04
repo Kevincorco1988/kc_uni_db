@@ -7,7 +7,7 @@ I have done little bits of coding before and enjoyed it but have really enjoyed 
 It has pushed me to out of my comfort zone and showed me what I'm capable of, I'm far from the finished article but 
 hope that time will help me fill in the gaps. I have throughly enjoyed the challenges of the projects thus far.
 
-View the deployed app here: [KC ONLINE SCHOO] (https://kevincorco1988.github.io//)
+View the deployed app here: [KC ONLINE SCHOO] (https://kevincorco1988.github.io/https://kevincorco1988.github.io/kc_uni_db/)
 
 ---
 
